@@ -53,7 +53,7 @@ To continuously update the locations of the vehicles run
 
 	mvn clean compile exec:java -Dexec.mainClass="com.datastax.taxi.Main" -DcontactPoints=localhost
 
-**Run the webservice**
+* **Run the webservice**
 
 To start the web server, in another terminal run
 
@@ -63,31 +63,30 @@ To start the web server, in another terminal run
 
 To find all movements of a vehicle use http://localhost:8080/datastax-taxi-app/rest/getmovements/{vehicle}/{date} e.g.
 
-	http://localhost:8080/datastax-taxi-app/rest/getmovements/1/20160112
+	http://localhost:8080/datastax-taxi-app/rest/getmovements/207/20200424
 
-Or
+Alternatively, with CQL:
 
-	select * from vehicle where vehicle = '1' and day='20160112';
+	select * from vehicle where vehicle = '207' and day='20200424';
 
 To find all vehicle movement, use the rest command http://localhost:8080/datastax-taxi-app/rest/getvehicles/{tile} e.g.
 
-	http://localhost:8080/datastax-taxi-app/rest/getvehicles/gcrf
+	http://localhost:8080/datastax-taxi-app/rest/getvehicles/gcpm
 
-or
+Alternatively, with CQL:
 
-	CQL - select * from current_location where solr_query = '{"q": "tile1:gcrf"}' limit 1000;
+	 select * from current_location where solr_query = '{"q": "tile1:gcpm"}' limit 1000;
 
 
 To find all vehicles within a certain distance of a latitude and longitude, http://localhost:8080/datastax-taxi-app/rest/search/{lat}/{long}/{distance}
 
 	http://localhost:8080/datastax-taxi-app/rest/search/52.53956077140064/-0.20225833920426117/5
 
-Or
+Alternatively, with CQL:
 
 	select * from current_location where solr_query = '{"q": "*:*", "fq": "{!geofilt sfield=lat_long pt=52.53956077140064,-0.20225833920426117 d=5}"}' limit 1000;
 
- * **Remove the schema**
-
+* **Remove the schema**
 
 To remove the tables and the schema, run the following.
 
