@@ -23,9 +23,7 @@ This application:
 ## Setup and Running
 
 ### Prerequisites
-The prerequisites required for this application to run
 
-e.g.
 * Java 8
 * A running DSE cluster
 * Maven to compile and run code
@@ -33,9 +31,8 @@ e.g.
 ### Running
 * **Setup the schema**
 
-To specify contact points use the contactPoints command line parameter e.g.
-`-DcontactPoints=192.168.25.100,192.168.25.101'`
-The contact points can take mulitple points in the IP,IP,IP (no spaces).
+To specify contact points use the contactPoints command line parameter e.g.`-DcontactPoints=192.168.25.100,192.168.25.101'`
+The contact points can take multiple points in the IP,IP,IP (no spaces).
 
 To create the schema, run the following
 
